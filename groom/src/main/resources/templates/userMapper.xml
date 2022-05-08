@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jointest.user.UserDAO">
+	<insert id="join">
+		insert into user(userid, userpwd, nickname)
+		values(#{userid},#{userpwd},#{nickname})
+	</insert>
+	<select id="login" resultType="com.jointest.user.UserVO">
+		select userid, nickname from user
+		where userid=#{userid} and userpwd=#{userpwd}
+	</select>
+</mapper>
