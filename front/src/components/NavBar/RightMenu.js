@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {useState}  from 'react'
 import { Menu } from 'antd';
-
+import axios from 'axios';
 
 function RightMenu(props) {
   return (
         <Menu mode={props.mode}>
             <Menu.Item>
-                LOGIN
+                <a href="/login">LOGIN</a>
             </Menu.Item>
             <Menu.Item>
-                SIGN UP
+                <a href="/signup">SIGN UP</a>
             </Menu.Item>
         </Menu>
         

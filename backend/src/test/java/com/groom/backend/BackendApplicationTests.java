@@ -1,10 +1,10 @@
-package com.myapp.groom;
+package com.groom.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GroomApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {

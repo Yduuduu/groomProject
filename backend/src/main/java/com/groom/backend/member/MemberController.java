@@ -1,4 +1,4 @@
-package com.myapp.groom.user;
+package com.groom.backend.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,19 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/user/")
-public class UserController {
+@RequestMapping("/api/member/")
+public class MemberController {
 	@Autowired
-	UserService service;
+	MemberService service;
 	
-	@PostMapping("/join")
-	public int join(@RequestBody UserVO vo) {
-		return service.join(vo);
-	}
-	
-	@PostMapping("/login")
-	public UserVO login(@RequestBody UserVO vo) {
-		return service.login(vo);
+	@PostMapping("/signup")
+	public int signup(@RequestBody MemberVO vo) {
+		return service.signup(vo);
 	}
 
 }
