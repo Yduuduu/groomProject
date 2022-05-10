@@ -11,4 +11,8 @@ public class MemberService {
 	public int signup(MemberVO vo) {
 		return dao.signup(vo);
 	}
+	
+	public MemberVO login(MemberVO vo) {
+		return dao.login(vo);
+	}
 }

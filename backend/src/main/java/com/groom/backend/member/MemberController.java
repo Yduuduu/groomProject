@@ -16,5 +16,11 @@ public class MemberController {
 	public int signup(@RequestBody MemberVO vo) {
 		return service.signup(vo);
 	}
+	
+	@PostMapping("/login")
+	public MemberVO login(@RequestBody MemberVO vo) {
+		
+		return service.login(vo);
+	}
 
 }
