@@ -51,8 +51,8 @@ function Login(props) {
           window.sessionStorage.setItem("isLogin", true);
           onLogin(true);
           setIsLogin(true);
-          navigate("/");
-          //window.location.href='/';
+          //navigate("/");
+          window.location.href='/';
           //로그아웃일땐 off로
       }
       else{

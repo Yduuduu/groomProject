@@ -2,6 +2,7 @@ import React, {useState, useEffect}  from 'react'
 import { Menu } from 'antd';
 import './Navbar.css';
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function RightMenu(props) {
     const navigate = useNavigate();
@@ -11,13 +12,18 @@ function RightMenu(props) {
     const [user_name, setUser_name ] = useState(sessionStorage.getItem("user_name"));
 
     const logoutHandler = () => {
-        console.log(window.sessionStorage);
-        window.sessionStorage.clear();    
-        setIsLogin(false);
-        onLogin(false);
-        //sessionStorage.setItem("isLogin", false)
-        setUser_name('');
-        navigate("/");
+        axios.get('/api/member/logout')
+        .then((res)=>{
+            console.log("logout", res.data)
+            console.log(window.sessionStorage);
+            window.sessionStorage.clear();    
+            setIsLogin(false);
+            onLogin(false);
+            //sessionStorage.setItem("isLogin", false)
+            setUser_name('');
+            navigate("/");
+        })
+        
         //history.replace("/");
         //window.location.href='/';
     };

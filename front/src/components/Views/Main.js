@@ -254,10 +254,10 @@ function Main() {
 
         <div className='bottomImg'>
           <div className='bottomImgWrap'>
-            {/*<img src="img/7.gif" alt=""/>
+            <img src="img/7.gif" alt=""/>
             <img src="img/5.gif" alt=""/>
             <img src="img/6.gif" alt=""/>
-        <img src="img/8.gif" alt=""/>*/}
+            <img src="img/8.gif" alt=""/>
         
           </div>
         </div>

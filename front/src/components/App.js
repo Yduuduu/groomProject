@@ -1,11 +1,12 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Logo from "./NavBar/Logo"
 import NavBar from "./NavBar/NavBar";
 import Main from './Views/Main';
 import Footer from './Footer/Footer';
 import SignUp from './Member/SignUp';
 import Login from './Member/Login';
+import axios from "axios";
 
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
     if(val===true){
       setLoginState('on')
       setisLogin(true)
-      alert('a--->'+isLogin)
+      //alert('a--->'+isLogin)
     } else if(val===false)  {
       setLoginState('off')
       setisLogin(false)
-      alert("띄워짐")
+      //alert("띄워짐")
     }
     /*if(val==='on'){
       setisLogin(true)
@@ -31,8 +32,26 @@ function App() {
       setisLogin(false)
     }*/
     
-    alert('onLoginHandler isLogiin: --->>>>>'+ isLogin+"////"+loginState)
+    //alert('onLoginHandler isLogiin: --->>>>>'+ isLogin+"////"+loginState)
   }
+
+  const loginCheck=()=>{
+    axios.get('/api/member/loginCheck')
+    .then((res)=>{
+      console.log("loginCheck", res.data)
+      if(parseInt(res.data)>0){
+        setisLogin(true)
+        setLoginState('on')
+      }else{
+        setisLogin(false)
+        setLoginState('off')
+      }
+    })
+  }
+
+  useEffect(()=>{
+    loginCheck()
+  },[])
 
   return (
     <BrowserRouter>
