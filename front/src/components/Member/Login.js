@@ -48,10 +48,11 @@ function Login(props) {
           alert("로그인이 완료되었습니다.");
           window.sessionStorage.setItem("user_id", res.data.user_id);
           window.sessionStorage.setItem("user_name", res.data.user_name);
+          window.sessionStorage.setItem("isLogin", true);
           onLogin(true);
           setIsLogin(true);
-          //navigate("/");
-          window.location.href='/';
+          navigate("/");
+          //window.location.href='/';
           //로그아웃일땐 off로
       }
       else{

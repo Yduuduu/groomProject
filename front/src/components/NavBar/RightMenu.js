@@ -1,29 +1,34 @@
 import React, {useState, useEffect}  from 'react'
 import { Menu } from 'antd';
 import './Navbar.css';
+import { useNavigate } from "react-router-dom";
 
 function RightMenu(props) {
-
-    const [ isLogin, setIsLogin ] = useState(props.isLogin);
-    
+    const navigate = useNavigate();
+    const [ isLogin, setIsLogin ] = useState(sessionStorage.getItem("isLogin"));
+    const {onLogin} =props
+    const {loginState} =props
     const [user_name, setUser_name ] = useState(sessionStorage.getItem("user_name"));
 
     const logoutHandler = () => {
         console.log(window.sessionStorage);
         window.sessionStorage.clear();    
         setIsLogin(false);
+        onLogin(false);
+        //sessionStorage.setItem("isLogin", false)
         setUser_name('');
+        navigate("/");
         //history.replace("/");
-        window.location.href='/';
+        //window.location.href='/';
     };
 
-    useEffect(( )=>{
+    /*useEffect(( )=>{
         console.log("useEffect:",isLogin)
-    },[isLogin])
+    },[isLogin])*/
 
     return (   
         <>
-            <div id="login" className={isLogin ? 'off' : 'on'}>
+            <div id="login" className={props.isLogin ? "off" : "on"}>
                 <Menu mode={props.mode}>
                     <Menu.Item>
                         <a href="/login">LOGIN</a>
@@ -34,7 +39,7 @@ function RightMenu(props) {
                 </Menu>
             </div>
             
-            <div id="logout" className={isLogin ? 'on' : 'off'} >
+            <div id="logout" className={props.isLogin ? "on" : "off"}>
                 <Menu mode={props.mode}>
                     <Menu.Item>
                         <p>{user_name}님 어서오세요</p>

@@ -68,6 +68,14 @@
   padding: 14px 24px !important;
 }
 
+/*#login.on{
+  display: none;
+}
+
+#login.off{
+  display: inline;
+}*/
+
 .on{
   display: inline;
 }

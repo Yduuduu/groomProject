@@ -7,6 +7,8 @@ import './Navbar.css';
 
 function NavBar(props) {
     console.log("props.isLogin : ",props.isLogin)
+    const {onLogin} =props
+    const {loginState} =props
     const [visible, setVisible] = useState(false)
 
     const showDrawer = () => {
@@ -26,7 +28,9 @@ function NavBar(props) {
                 <LeftMenu mode="horizontal" />
             </div>
             <div className="menu_rigth">
-                <RightMenu mode="horizontal" isLogin={props.isLogin} />
+                <RightMenu mode="horizontal" loginState={loginState} isLogin={props.isLogin} onLogin={(val)=>{
+                    onLogin(val)
+                }}/>
             </div>
             <Button
                 className="menu__mobile-button"
@@ -43,8 +47,8 @@ function NavBar(props) {
                 onClose={onClose}
                 visible={visible}
             >
-                {/*<LeftMenu mode="inline" />
-                <RightMenu mode="inline" />*/}
+                <LeftMenu mode="inline" />
+                <RightMenu mode="inline" />
             </Drawer>
         </div>
         

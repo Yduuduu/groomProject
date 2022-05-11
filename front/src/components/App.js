@@ -18,11 +18,11 @@ function App() {
     if(val===true){
       setLoginState('on')
       setisLogin(true)
-      alert('a'+isLogin)
-    } else if((val===false))  {
+      alert('a--->'+isLogin)
+    } else if(val===false)  {
       setLoginState('off')
       setisLogin(false)
-      alert('b')
+      alert("띄워짐")
     }
     /*if(val==='on'){
       setisLogin(true)
@@ -31,7 +31,7 @@ function App() {
       setisLogin(false)
     }*/
     
-    alert('onLoginHandler isLogiin: --->>>>>'+ isLogin+loginState)
+    alert('onLoginHandler isLogiin: --->>>>>'+ isLogin+"////"+loginState)
   }
 
   return (
@@ -39,7 +39,7 @@ function App() {
     <div>
 
       {/*네비게이션*/}
-      <NavBar isLogin={isLogin} onLogin={onLoginHandler}  />
+      <NavBar isLogin={isLogin} loginState={loginState} onLogin={onLoginHandler}  />
 
       {/*본문 - 라우팅 설정*/}
       <main style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
