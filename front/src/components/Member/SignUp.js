@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 import { Form, Input, Button } from 'antd';
-
 import './SignUp.css';
 
     const formItemLayout = {
@@ -47,6 +46,7 @@ function SignUp() {
         console.log(inputs)
     }
 
+    // 회원가입
     const signUp = () => {
         const body = {
             user_id: user_id,
@@ -72,7 +72,6 @@ function SignUp() {
             console.log(e)
         })
       }
-
 
     return (
         <div className="app">

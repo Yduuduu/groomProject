@@ -10,29 +10,18 @@ import axios from "axios";
 
 
 function App() {
+
   const [loginState, setLoginState] = useState("off");  
   const [isLogin, setisLogin] = useState(false);  
   
-  
   const onLoginHandler=(val)=>{
-    alert("val----->>"+val+typeof(val))
     if(val===true){
       setLoginState('on')
       setisLogin(true)
-      //alert('a--->'+isLogin)
     } else if(val===false)  {
       setLoginState('off')
       setisLogin(false)
-      //alert("띄워짐")
     }
-    /*if(val==='on'){
-      setisLogin(true)
-    }
-    else if(val==='off')  {
-      setisLogin(false)
-    }*/
-    
-    //alert('onLoginHandler isLogiin: --->>>>>'+ isLogin+"////"+loginState)
   }
 
   const loginCheck=()=>{
@@ -46,6 +35,9 @@ function App() {
         setisLogin(false)
         setLoginState('off')
       }
+    })
+    .catch((e)=>{
+        console.log(e);
     })
   }
 

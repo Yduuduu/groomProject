@@ -19,18 +19,13 @@ function RightMenu(props) {
             window.sessionStorage.clear();    
             setIsLogin(false);
             onLogin(false);
-            //sessionStorage.setItem("isLogin", false)
             setUser_name('');
             navigate("/");
         })
-        
-        //history.replace("/");
-        //window.location.href='/';
+        .catch((e)=>{
+            console.log(e);
+        })
     };
-
-    /*useEffect(( )=>{
-        console.log("useEffect:",isLogin)
-    },[isLogin])*/
 
     return (   
         <>
@@ -63,6 +58,6 @@ function RightMenu(props) {
             </div>
         </>
     )
-    }
+}
 
 export default RightMenu

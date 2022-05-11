@@ -5,11 +5,9 @@ import axios from 'axios';
 import './Login.css';
 import { useNavigate } from "react-router-dom";
 
-const { Title } = Typography;
-
 function Login(props) {
   const navigate = useNavigate();
-  const {onLogin} =props
+  const {onLogin} = props
   const [ isLogin, setIsLogin ] = useState(props.isLogin);
 
   const [inputs, setInputs] = useState({
@@ -17,14 +15,10 @@ function Login(props) {
     user_pwd:''
   })
 
-  /*useEffect(( )=>{
-    console.log("Login",isLogin)
-  },[isLogin])*/
-
   const {user_id, user_pwd} = inputs
 
   const onChange = (e) => {
-      const {value, name} = e.target // const value = e.target.value, const name = e.target.name
+      const {value, name} = e.target
       setInputs({
           ...inputs,
           [name]:value
@@ -32,11 +26,7 @@ function Login(props) {
       console.log("onChange:",inputs)
   }
 
-
-
-  //로그인을 하도록 유도. "세션스토리지" 를 저장하게끔. 서버로부터 로그인했다는 응답을 받아서 세션에 아이디를 저장하고... 
-  //끄집어내서 ㅇㅇㅇ로그인중 페이지 이동할때마다 세션에 그 사람이 로그인되어있는지 계속 유지해야함.
-  //로그아웃할때는 세션스토리지를 지워줌
+  // 로그인
   const login = () => {
     const body = {
         user_id: user_id,
@@ -51,9 +41,7 @@ function Login(props) {
           window.sessionStorage.setItem("isLogin", true);
           onLogin(true);
           setIsLogin(true);
-          //navigate("/");
           window.location.href='/';
-          //로그아웃일땐 off로
       }
       else{
           alert("비밀번호가 잘못되었습니다");
