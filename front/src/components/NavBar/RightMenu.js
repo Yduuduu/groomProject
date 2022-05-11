@@ -3,16 +3,23 @@ import { Menu } from 'antd';
 import './Navbar.css';
 
 function RightMenu(props) {
-    const {isLogin} = props;
-    const [user_name, setUser_name] = useState(sessionStorage.getItem("user_name"));
-    const onLogin = useState(0);
+
+    const [ isLogin, setIsLogin ] = useState(props.isLogin);
+    
+    const [user_name, setUser_name ] = useState(sessionStorage.getItem("user_name"));
 
     const logoutHandler = () => {
-        window.sessionStorage.clear();
+        console.log(window.sessionStorage);
+        window.sessionStorage.clear();    
+        setIsLogin(false);
         setUser_name('');
-        onLogin();
-        window.location.href="/";
+        //history.replace("/");
+        window.location.href='/';
     };
+
+    useEffect(( )=>{
+        console.log("useEffect:",isLogin)
+    },[isLogin])
 
     return (   
         <>

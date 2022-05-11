@@ -1,0 +1,64 @@
+.app{
+    margin: 85px auto;
+    width: 500px;
+    height: 500px;
+    /*background: #3e91f7;*/
+}
+
+.app>img{
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.signupWrap{
+    height: 535px;
+    box-shadow: 0 0 10px #e1e1e1;
+    /*background: #505050;*/
+    overflow: hidden;
+}
+
+.signupTitle{
+    border-bottom: solid 1px #e8e8e8;
+    width: 450px;
+    margin-left: 30px;
+}
+
+.signupTitle>h1{
+    margin-top: 15px;
+    padding-top: 20px;
+    width: 360px;
+    height: 55px;
+    /*background: #c17639;*/
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.signupTitle>p{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 450px;
+    height: 20px;
+   /* background: #703a0d;*/
+    font-size: 15px;
+    color: #707070;
+}
+
+.signupForm{
+    margin: 35px auto;
+    margin-left: -80px;
+}
+
+.signupBtn{
+    width: 300px;
+}
+
+.signcheckImg{
+    width: 200px;
+    height: 200px;
+    margin-top: -145px;
+    margin-left: 320px;
+}
+
+#user_id, #user_pwd, #user_phone, #user_birth, #user_name{
+    width: 300px;
+}

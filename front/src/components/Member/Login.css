@@ -1,0 +1,60 @@
+.app{
+    margin: 100px auto;
+    width: 500px;
+    height: 500px;
+    /*background: #3e91f7;*/
+}
+
+.app>img{
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.loginWrap{
+    height: 500px;
+    box-shadow: 0 0 10px #e1e1e1;
+    /*background: #505050;*/
+    overflow: hidden;
+}
+
+.loginTitle{
+    border-bottom: solid 1px #e8e8e8;
+    width: 450px;
+    margin-left: 30px;
+}
+
+.loginTitle>h1{
+    margin-top: 15px;
+    padding-top: 20px;
+    width: 360px;
+    height: 55px;
+    /*background: #c17639;*/
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.loginTitle>p{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 450px;
+    height: 20px;
+   /* background: #703a0d;*/
+    font-size: 15px;
+    color: #707070;
+}
+
+.loginForm{
+    margin: 35px auto;
+    padding-top: -10px;
+}
+
+.loginFind{
+    padding-top: 15px;
+}
+
+.checkImg{
+    width: 200px;
+    height: 200px;
+    margin-top: -90px;
+    margin-left: 320px;
+}

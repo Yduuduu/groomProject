@@ -9,29 +9,43 @@ import Login from './Member/Login';
 
 
 function App() {
- 
-  const [loginState, setLoginState] = useState('loginState')  
+  const [loginState, setLoginState] = useState("off");  
+  const [isLogin, setisLogin] = useState(false);  
   
-  const onLogin=(val)=>{
-    alert(val)
-    setLoginState(val)
+  
+  const onLoginHandler=(val)=>{
+    alert("val----->>"+val+typeof(val))
+    if(val===true){
+      setLoginState('on')
+      setisLogin(true)
+      alert('a'+isLogin)
+    } else if((val===false))  {
+      setLoginState('off')
+      setisLogin(false)
+      alert('b')
+    }
+    /*if(val==='on'){
+      setisLogin(true)
+    }
+    else if(val==='off')  {
+      setisLogin(false)
+    }*/
+    
+    alert('onLoginHandler isLogiin: --->>>>>'+ isLogin+loginState)
   }
-
 
   return (
     <BrowserRouter>
     <div>
-      {/*로고*/}
-      <Logo />
 
       {/*네비게이션*/}
-      <NavBar isLogin={loginState} onLogin={onLogin}  />
+      <NavBar isLogin={isLogin} onLogin={onLoginHandler}  />
 
       {/*본문 - 라우팅 설정*/}
       <main style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
           <Routes>
             <Route path='/' element={<Main />} />
-            <Route path='/login' element={<Login onLogin={onLogin} />} />
+            <Route path='/login' element={<Login onLogin={onLoginHandler}/>} />
             <Route path='/signup' element={<SignUp />} />
           </Routes>
         </main>

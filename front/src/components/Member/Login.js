@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Form, Input, Button, Typography } from 'antd';
 import Icon from '@ant-design/icons';
 import axios from 'axios';
+import './Login.css';
+import { useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
 
-function Login({isLogin, onLogin}) {
-  
+function Login(props) {
+  const navigate = useNavigate();
+  const {onLogin} =props
+  const [ isLogin, setIsLogin ] = useState(props.isLogin);
+
   const [inputs, setInputs] = useState({
     user_id:'',
     user_pwd:''
   })
+
+  /*useEffect(( )=>{
+    console.log("Login",isLogin)
+  },[isLogin])*/
 
   const {user_id, user_pwd} = inputs
 
@@ -20,7 +29,7 @@ function Login({isLogin, onLogin}) {
           ...inputs,
           [name]:value
       })
-      console.log(inputs)
+      console.log("onChange:",inputs)
   }
 
 
@@ -39,9 +48,11 @@ function Login({isLogin, onLogin}) {
           alert("로그인이 완료되었습니다.");
           window.sessionStorage.setItem("user_id", res.data.user_id);
           window.sessionStorage.setItem("user_name", res.data.user_name);
-          onLogin('on');
+          onLogin(true);
+          setIsLogin(true);
+          //navigate("/");
+          window.location.href='/';
           //로그아웃일땐 off로
-          window.location='/';
       }
       else{
           alert("비밀번호가 잘못되었습니다");
@@ -54,45 +65,52 @@ function Login({isLogin, onLogin}) {
 
   return (
     <div className="app">
-      <Title level={2}>Log In</Title>
-      <Form style={{ width: '350px' }}>
-        <Form.Item required>
-          <Input
-            id="user_id"
-            name='user_id'
-            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder="아이디를 입력하세요."
-            type="text"
-            value={user_id}
-            onChange={onChange}/>
-        </Form.Item>
+      <img src="img/0-1.png" alt=""/>
+      <div className="loginWrap">
+        <div className="loginTitle">
+          <h1>로그인</h1>
+          <p>로그인 하시면 더욱 다양한 그룸의 서비스를 이용하실 수 있습니다.</p>
+        </div>
+        <Form style={{ width: '350px' }}  className="loginForm">
+          <Form.Item required label="아이디">
+            <Input
+              id="user_id"
+              name='user_id'
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="아이디를 입력하세요."
+              type="text"
+              value={user_id}
+              onChange={onChange}/>
+          </Form.Item>
 
-        <Form.Item required>
-          <Input
-            id="user_pwd"
-            name='user_pwd'
-            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder="비밀번호를 입력하세요."
-            type="password"
-            value={user_pwd}
-            onChange={onChange}
-            />
-        </Form.Item>
+          <Form.Item required label="비밀번호">
+            <Input
+              id="user_pwd"
+              name='user_pwd'
+              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="비밀번호를 입력하세요."
+              type="password"
+              value={user_pwd}
+              onChange={onChange}
+              />
+          </Form.Item>
 
-        <Form.Item>
-          <div>
-            <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} onClick={login}>
-              로그인
-            </Button>
-          </div>
-          아이디가 없으신가요?
-          <a href="/singup">회원가입</a><br/>
-          <a className="login-form-forgot" href="/" style={{ float: 'right' }}>
-            비밀번호를 잊으셨나요?
-          </a>
-        </Form.Item>
-        <p>{isLogin}</p>
-      </Form>
+          <Form.Item className="loginBtn">
+            <div className="loginBtnWrap">
+              <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} onClick={login}>
+                로그인
+              </Button>
+            </div>
+            <div className="loginFind">
+              <p>아이디가 없으신가요? <a href="/singup">회원가입</a><br/></p>
+            </div>
+            <a className="login-form-forgot" href="/" style={{ float: 'left' }}>
+                비밀번호를 잊으셨나요?
+              </a>
+          </Form.Item>
+        </Form>
+        <img className="checkImg" src="img/0-6.png" alt=""/>
+      </div>
     </div>
   )
 }

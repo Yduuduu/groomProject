@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import axios from 'axios';
 import { Form, Input, Button } from 'antd';
 
+import './SignUp.css';
+
     const formItemLayout = {
         labelCol: {
             xs: { span: 24 },
@@ -74,69 +76,76 @@ function SignUp() {
 
     return (
         <div className="app">
-            <h2>Sign up</h2>
-            <Form style={{ minWidth: '375px' }} {...formItemLayout} >
+            <img src="img/0-1.png" alt=""/>
+            <div className="signupWrap">
+                <div className="signupTitle">
+                    <h1>회원가입</h1>
+                    <p>회원가입 하시면 더욱 다양한 그룸의 서비스를 이용하실 수 있습니다.</p>
+                </div>
 
-            <Form.Item required label="아이디">
-                <Input
-                id="user_id"
-                name='user_id'
-                placeholder="아이디를 입력하세요."
-                type="text"
-                value={user_id}
-                onChange={onChange}/>
-            </Form.Item>
+                <Form style={{ minWidth: '375px' }} {...formItemLayout} className="signupForm">
+                    <Form.Item required label="아이디">
+                        <Input
+                        id="user_id"
+                        name='user_id'
+                        placeholder="아이디를 입력하세요."
+                        type="text"
+                        value={user_id}
+                        onChange={onChange}/>
+                    </Form.Item>
 
-            <Form.Item required label="비밀번호">
-                <Input
-                id="user_pwd"
-                name='user_pwd'
-                placeholder="비밀번호를 입력하세요."
-                type="password"
-                value={user_pwd}
-                onChange={onChange}
-                />
-            </Form.Item>
+                    <Form.Item required label="비밀번호">
+                        <Input
+                        id="user_pwd"
+                        name='user_pwd'
+                        placeholder="비밀번호를 입력하세요."
+                        type="password"
+                        value={user_pwd}
+                        onChange={onChange}
+                        />
+                    </Form.Item>
 
-            <Form.Item required label="전화번호">
-                <Input
-                id="user_phone"
-                name='user_phone'
-                placeholder="전화번호를 입력하세요."
-                type="text"
-                value={user_phone}
-                onChange={onChange}
-                />
-            </Form.Item>
+                    <Form.Item required label="전화번호">
+                        <Input
+                        id="user_phone"
+                        name='user_phone'
+                        placeholder="전화번호를 입력하세요."
+                        type="text"
+                        value={user_phone}
+                        onChange={onChange}
+                        />
+                    </Form.Item>
 
-            <Form.Item required label="생년월일">
-                <Input
-                id="user_birth"
-                name='user_birth'
-                placeholder="생년월일을 입력하세요."
-                type="text"
-                value={user_birth}
-                onChange={onChange}
-                />
-            </Form.Item>
+                    <Form.Item required label="생년월일">
+                        <Input
+                        id="user_birth"
+                        name='user_birth'
+                        placeholder="생년월일을 입력하세요."
+                        type="text"
+                        value={user_birth}
+                        onChange={onChange}
+                        />
+                    </Form.Item>
 
-            <Form.Item required label="이름">
-                <Input
-                id="user_name"
-                name='user_name'
-                placeholder="이름을 입력하세요."
-                type="text"
-                value={user_name}
-                onChange={onChange}
-                />
-            </Form.Item>
+                    <Form.Item required label="이름">
+                        <Input
+                        id="user_name"
+                        name='user_name'
+                        placeholder="이름을 입력하세요."
+                        type="text"
+                        value={user_name}
+                        onChange={onChange}
+                        />
+                    </Form.Item>
 
-            <Form.Item {...tailFormItemLayout}>
-                <Button onClick={signUp} type="primary">
-                Submit
-                </Button>
-            </Form.Item>
-            </Form>
+                    <Form.Item {...tailFormItemLayout}>
+                        <Button onClick={signUp} type="primary" className="signupBtn">
+                        회원가입
+                        </Button>
+                    </Form.Item>
+                </Form>
+                <img className="signcheckImg" src="img/0-6.png" alt=""/>
+            </div>
         </div>
     );
 };

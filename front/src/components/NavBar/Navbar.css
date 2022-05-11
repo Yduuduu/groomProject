@@ -1,24 +1,25 @@
 @import '~antd/dist/antd.css';
 
+
 .menu {
+  height: 70px;
   padding: 0 20px;
   border-bottom: solid 1px #e8e8e8;
-  overflow: auto;
-  box-shadow: 0 0 30px #f3f1f1;
+  /*overflow: auto;
+  box-shadow: 0 0 30px #f3f1f1;*/
   background-color: white;
+  overflow: hidden;
 }
 
 .menu__logo {
   width: 200px;
   float: left;
 }
-
-.menu__logo a {
-  display: inline-block;
-  font-size: 20px;
-  padding: 19px 20px;
+.menu__logo>img {
+  margin-top: 13px;
+  margin-left: 30px;
+  width: 150px;
 }
-
 .menu__container .ant-menu-item {
   padding: 0px 5px;
 }
@@ -38,6 +39,7 @@
 
 .menu__container .menu_left {
   float: left;
+  margin-left: 45px;
   margin-top: 12px;
   width: 500px;
 }
@@ -45,7 +47,7 @@
 .menu__container .menu_rigth {
   float: right;
   margin-top: 12px;
-  width: 300px;
+  width: 500px;
 }
 
 .menu__mobile-button {

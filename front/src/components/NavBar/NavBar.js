@@ -5,8 +5,8 @@ import { Drawer, Button } from 'antd';
 import Icon from '@ant-design/icons';
 import './Navbar.css';
 
-function NavBar({isLogin, onLogin}) {
-
+function NavBar(props) {
+    console.log("props.isLogin : ",props.isLogin)
     const [visible, setVisible] = useState(false)
 
     const showDrawer = () => {
@@ -16,19 +16,17 @@ function NavBar({isLogin, onLogin}) {
     const onClose = () => {
         setVisible(false)
     };
-
+//히스토리
 
   return (
     <nav className="menu" style={{ position: 'fixed', zIndex: 5, width: '100%' }}>
-        <div className="menu__logo">
-            <a href="/">Logo</a>
-        </div>
+        <a className="menu__logo" href="/"><img src="img/0-1.png" alt=''/></a>
         <div className="menu__container">
             <div className="menu_left">
                 <LeftMenu mode="horizontal" />
             </div>
             <div className="menu_rigth">
-                <RightMenu mode="horizontal" isLogin={isLogin} onLogin={onLogin}/>
+                <RightMenu mode="horizontal" isLogin={props.isLogin} />
             </div>
             <Button
                 className="menu__mobile-button"
@@ -45,8 +43,8 @@ function NavBar({isLogin, onLogin}) {
                 onClose={onClose}
                 visible={visible}
             >
-                <LeftMenu mode="inline" />
-                <RightMenu mode="inline" />
+                {/*<LeftMenu mode="inline" />
+                <RightMenu mode="inline" />*/}
             </Drawer>
         </div>
         
